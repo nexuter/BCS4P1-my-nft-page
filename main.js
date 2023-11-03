@@ -16,3 +16,48 @@ function getTime() {
 
 getTime();
 setInterval(getTime, 1000);
+
+const QUOTE_LIST = "quotes";
+
+function getQuotes() {
+  const quotes = document.querySelector(".quotes");
+  localStorage.clear();
+  var quoteSaved = localStorage.getItem(QUOTE_LIST);
+  if (!quoteSaved) {
+    var quote_list = ["Do It Yourself", "Just Do It", "No Pain No Gain"];
+    localStorage.setItem("quotes", JSON.stringify(quote_list));
+    quoteSaved = localStorage.getItem(QUOTE_LIST);
+  }
+  var quoteParsed = JSON.parse(quoteSaved);
+  quotes.innerText = quoteParsed[parseInt(Math.random() * quoteParsed.length)];
+}
+
+getQuotes();
+
+function onClickNewQuotes() {
+  const quotes = document.querySelector(".quotes");
+  const newQuotes = document.querySelector(".new-quotes");
+  const newQuotesInput = document.querySelector(".new-quotes-input");
+
+  console.log(newQuotesInput.value);
+
+  if (newQuotesInput.value) {
+    var savedQuotes = localStorage.getItem("quotes");
+    var parsedQuotes = JSON.parse(savedQuotes);
+    parsedQuotes.push(newQuotesInput.value);
+    localStorage.setItem("quotes", JSON.stringify(parsedQuotes));
+
+    quotes.innerText = newQuotesInput.value;
+    newQuotesInput.value = "";
+  }
+  quotes.style.display = "block";
+  newQuotes.style.display = "none";
+}
+
+function onClickQuotes() {
+  const quotes = document.querySelector(".quotes");
+  const newQuotes = document.querySelector(".new-quotes");
+
+  quotes.style.display = "none";
+  newQuotes.style.display = "block";
+}

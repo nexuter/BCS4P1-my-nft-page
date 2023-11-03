@@ -3,8 +3,20 @@
   src: url("./assets/fonts/DS-DIGI.TTF");
 }
 
+@font-face {
+  font-family: "YClover-Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_231029@1.1/YClover-Bold.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
 .font-digi {
   font-family: "DS-DIGI";
+}
+
+.font-yclover-bold {
+  font-family: "YClover-Bold";
 }
 
 body {
@@ -33,4 +45,37 @@ header {
   justify-content: space-between;
   padding: 16px;
   font-size: 32px;
+}
+
+header > div > button {
+  font-size: 32px;
+  color: white;
+}
+
+button {
+  border: 0;
+  background-color: transparent;
+  color: white;
+}
+
+.new-quotes {
+  display: none;
+}
+
+.new-quotes > button {
+  background-color: pink;
+  padding: 8px 16px;
+  margin-left: 8px;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+.new-quotes-input {
+  border: 1px solid hotpink;
+  padding: 4px 8px;
+  font-size: 20px;
+}
+
+.new-quotes-input:focus {
+  outline: none;
 }
